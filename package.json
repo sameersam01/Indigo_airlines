@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^10.12.4",
+    "kafkajs": "^2.2.4"
+  }
+}

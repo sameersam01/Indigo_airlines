@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IndiGo Flight Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <script type="module" src="/firebase.js"></script>
+  <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="left">
+        <img src="/img/IndiGo_logo_2x.jpg" alt="IndiGo Logo" />
+      </div>
+      <div class="right"><button>Login</button></div>
+    </header>
+    <div class="navigator">
+      Home <i class="fa-solid fa-angle-right"></i> Plan your travel
+      <i class="fa-solid fa-angle-right"></i><span> Flight Tracker</span>
+    </div>
+    <div class="main">
+      <div class="wrapper">
+        <div class="d1">
+          <div class="d1-head">Check Flight Status</div>
+          <span>With IndiGo's flight tracker, you can now track the live status of domestic and international flights. Just enter a few details such as PNR number, flight number, travel date, and others to get the flight status on the go from anywhere.</span>
+        </div>
+        <div class="d2">
+          <span>Enter flight details to check your flight status.</span>
+          <div class="search">
+            <div class="s1">
+              <select id="departing">
+                <option value="">Departing From</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <!-- Add more cities as needed -->
+              </select>
+              <select id="arriving">
+                <option value="">Arriving At</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <!-- Add more cities as needed -->
+              </select>
+              <input type="date" id="travel-date" />
+            </div>
+            <div class="s2">
+              <input type="text" id="flight-num" placeholder="6E-Flight" />
+              <input type="text" id="pnr" placeholder="PNR/Booking Ref." />
+              <button id="search-button" type="button">Search Flight</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id="flight-status-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Flight Status Details</h2>
+            <div id="modal-body">
+              <!-- Flight status details will be inserted here -->
+            </div>
+            <div class="notify">
+              <input type="email" id="notify-email" placeholder="Enter your email to get updates" />
+              <button id="notify-button" type="button">Notify Me</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="guide">
+          <h2><b>How to track PNR status?</b></h2>
+          <br />
+          <span>It's now possible to track flight PNR in real-time for all domestic flights, international flights, as well as codeshare flights with IndiGo.</span>
+          <br /><br />
+          <span>So, follow these steps and stay updated about your flight PNR status.</span>
+          <br /><br />
+          <ul>
+            <li>Visit the website <a href="http://goIndiGo.in">goIndiGo.in</a> or the IndiGo mobile app.</li>
+            <li>Click on the ‘Flight Status’ tab on your respective device.</li>
+            <li>Enter the departing and arriving destination.</li>
+            <li>Enter your date of travel, flight number as well as PNR or booking reference number.</li>
+            <li>After you have entered all the required information, click on the ‘Search Flight’ icon and get the relevant information on your flight status.</li>
+          </ul>
+          <br /><br />
+          <span>Apart from the above-mentioned steps, there are certain points that you must keep in mind when you are booking flights with IndiGo, some of which are listed below:</span>
+          <br /><br />
+          <ul>
+            <li>Remember to mention your own email ID and mobile number while making your booking, as IndiGo sends emails and SMS regarding any change in the flight status to the registered contact details.</li>
+            <li>Along with tracking the flight status, also remember to do a free web check-in for both domestic and international flights.</li>
+            <li>Also, stay updated on both domestic and international travel guidelines by visiting the state-wise guidelines section on the website.</li>
+          </ul>
+        </div>
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq">
+            <h3>How can I get the real-time flight status?</h3>
+            <p>You can get a real-time status of IndiGo flights by taking advantage of the flight tracker feature.</p>
+          </div>
+
+          <div class="faq">
+            <h3>How to track flight PNR status online?</h3>
+            <p>To track the flight PNR status, simply visit the flight status option on the IndiGo website or mobile app and enter the required information such as travel date, PNR number, flight number, and others.</p>
+          </div>
+
+          <div class="faq">
+            <h3>Can I use the flight tracker feature for IndiGo’s domestic and international flights?</h3>
+            <p>Yes, you can use IndiGo’s flight status to stay updated on both your domestic and international flights as well as codeshare flights.</p>
+          </div>
+
+          <div class="faq">
+            <h3>Will I be informed of any delay if my scheduled IndiGo flight gets delayed or cancelled?</h3>
+            <p>Yes, in case of delay or cancellation, IndiGo takes the responsibility to notify passengers about the same on their registered mobile number or email ID.</p>
+          </div>
+
+          <div class="faq">
+            <h3>What if I do not know IndiGo’s flight number for checking the flight status?</h3>
+            <p>Don't worry if you don't know the flight number, as you will find it on the flight ticket emailed to your registered email address by IndiGo.</p>
+          </div>
+
+          <div class="faq">
+            <h3>What can I do if I am unable to track the flight status?</h3>
+            <p>In case you face any kind of inconvenience while checking the flight status, you can always contact our support team or alternatively chat with Dottie, our AI-powered chat assistant, to get all your queries sorted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Please Log In</h2>
+        <p>You need to log in to continue using this service.</p>
+        <button id="login-button" type="button">Login</button>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/7bf9ff52a1.js" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
